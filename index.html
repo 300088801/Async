@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browser side API call</title>
+</head>
+<body>
+    <div id="character">
+
+    </div>
+</body>
+<script>
+    (async () => {
+        const input = prompt('Enter character id: ')
+
+    const url = `https://swapi.dev/api/people/${input}`
+    const response = await fetch(url)
+    const data = await response.json()
+    console.log(data)
+    document.querySelector('#character').textContent=data.name
+})()
+</script>
+</html>
